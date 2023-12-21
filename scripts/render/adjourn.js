@@ -1,11 +1,10 @@
-import { now, today } from './datetime.js';
+import { now, today } from '../datetime.js';
 
 /**
-  * Renders the meeting adjournment minutes entry and appends it to the feed.
-  * @param {HTMLElement} feed - The minutes feed
-  * @returns {void}
+  * Renders the meeting adjournment minutes entry.
+  * @returns {HTMLElement} The meeting adjournment minutes entry.
   */
-export function renderMeetingAdjournment(feed) {
+export default function renderMeetingAdjournment() {
   const minutesEntry = document.createElement('section');
 
   const heading = document.createElement('h1');
@@ -16,5 +15,6 @@ export function renderMeetingAdjournment(feed) {
   p.textContent = `The meeting was adjourned at ${now()} on ${today()}.`;
   minutesEntry.appendChild(p);
 
-  feed.appendChild(minutesEntry);
+  return minutesEntry;
 }
+

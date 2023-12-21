@@ -1,12 +1,11 @@
-import { renderMeetingAdjournment } from './adjourn.js';
+import renderMeetingAdjournment from './adjourn.js';
 
 /**
   * Renders an AOB component, which presents the user with options to conduct
   * some more business or to adjourn the meeting.
-  * @param feed {HTMLElement} - The feed to which to append this AOB instance
-  * @returns {void}
+  * @returns {HTMLElement} - The AOB component.
   */
-export function renderAnyOtherBusiness(feed) {
+export default function renderAnyOtherBusiness() {
   const aob = document.createElement('section');
   aob.id = "aob";
   aob.setAttribute('class', 'aob');
@@ -26,31 +25,20 @@ export function renderAnyOtherBusiness(feed) {
 
   const adjournButton = document.createElement('button');
   adjournButton.textContent = 'Adjourn the meeting';
-  adjournButton.addEventListener('click', () => adjourn(feed));
+  adjournButton.addEventListener('click', adjourn);
   buttons.appendChild(adjournButton);
 
-  for (const h1 of document.getElementsByTagName('h1')) {
-    h1.remove();
-  }
-
-  feed.appendChild(aob);
+  return aob;
 }
 
 function putMotion() {
   window.alert('Putting motion');
 }
 
-/**
-  * Adjourns the meeting.
-  * @param feed {HTMLElement} - The minutes feed.
-  * @returns {void}
-  */
-function adjourn(feed) {
+function adjourn() {
   const aob = document.getElementById('aob');
-  if (aob) {
-    aob.remove();
-  }
-
-  renderMeetingAdjournment(feed);
+  const feed = aob.parentElement;
+  aob.remove();
+  feed.appendChild(renderMeetingAdjournment());
 }
 
