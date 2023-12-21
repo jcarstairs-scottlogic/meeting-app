@@ -39,6 +39,8 @@ function adjourn() {
   const aob = document.getElementById('aob');
   const feed = aob.parentElement;
   aob.remove();
-  feed.appendChild(renderMeetingAdjournment());
+  const adjournment = renderMeetingAdjournment();
+  feed.appendChild(adjournment);
+  adjournment.focus();
 }
 
