@@ -1,4 +1,5 @@
 import renderMeetingAdjournment from './adjourn.js';
+import renderPutMotionForm from './put_motion.js';
 
 /**
   * Renders an AOB component, which presents the user with options to conduct
@@ -32,7 +33,12 @@ export default function renderAnyOtherBusiness() {
 }
 
 function putMotion() {
-  window.alert('Putting motion');
+  const aob = document.getElementById('aob');
+  const feed = aob.parentElement;
+  aob.remove();
+  const putMotionForm = renderPutMotionForm();
+  feed.appendChild(putMotionForm);
+  putMotionForm.focus();
 }
 
 function adjourn() {

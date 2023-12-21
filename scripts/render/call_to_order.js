@@ -24,6 +24,7 @@ export default function renderMeetingCalledToOrderMinuteEntry(meetingDetails) {
   minuteEntry.appendChild(headingSederunt);
 
   const ulSederunt = document.createElement('ul');
+  ulSederunt.id = 'sederunt';
   for (const attendee of meetingDetails.sederunt) {
     const li = document.createElement('li');
     li.textContent = attendee;
