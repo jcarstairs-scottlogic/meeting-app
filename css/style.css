@@ -8,6 +8,11 @@
   margin-left: auto;
 }
 
+.button--neutral {
+  background-color: var(--color-neutral-bg);
+  color: var(--color-neutral-text);
+}
+
 /* Any Other Business component */
 
 .aob__buttons {
