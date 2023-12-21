@@ -9,12 +9,12 @@ export default function renderMeetingCalledToOrderMinuteEntry(meetingDetails) {
   const minuteEntry = document.createElement('section');
 
   const headingCalledToOrder = document.createElement('h2');
-  headingCalledToOrder.textContent = 'Meeting called to order';
+  headingCalledToOrder.textContent = meetingDetails.title;
   minuteEntry.appendChild(headingCalledToOrder);
 
   const pCalledToOrder = document.createElement('p');
   pCalledToOrder.textContent = `
-    The ${meetingDetails.title} meeting was called to order at
+    The meeting was called to order at
     ${meetingDetails.localStartTime} on ${meetingDetails.localStartDate}.
   `;
   minuteEntry.appendChild(pCalledToOrder);
