@@ -1,0 +1,62 @@
+list-input {
+  display: grid;
+  grid-template-columns: 0 1fr 3rem;
+  align-items: baseline;
+
+  ul {
+    margin: 0;
+    display: grid;
+    grid-column: 1 / 4;
+    grid-template-columns: subgrid;
+    padding-inline-start: 0;
+    margin-block-end: 0;
+  }
+
+  li {
+    list-style: none;
+    display: grid;
+    grid-column: 1 / 4;
+    grid-template-columns: subgrid;
+    
+    label {
+      /* present to screen readers, but visually hidden */
+      clip: rect(0 0 0 0); 
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap; 
+      width: 1px;
+      grid-column: 1 / 2;
+    }
+
+    input {
+      grid-column: 2 / 3;
+    }
+
+    /* Delete button */
+    button {
+      grid-column: 3 / 4;
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+      justify-self: end;
+      border-radius: 50%;
+      background-color: var(--color-destructive);
+      color: var(--color-destructive-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  /* Add button */
+  > button {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    grid-column: 2 / 3;
+    justify-self: center;
+  }
+}

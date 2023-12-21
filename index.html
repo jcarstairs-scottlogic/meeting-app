@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start new meeting</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="scripts/web_components/list_input.js"></script>
+    <script type="module" src="scripts/call_to_order.js" defer></script>
+  </head>
+
+  <body>
+    <h1>Start new meeting</h1>
+    <form id="meeting-details-form">
+      <label for="meeting-title">Meeting title</label>
+      <input type="text" id="meeting-title" required>
+
+      <label>Sederunt</label>
+      <list-input id="sederunt" required>
+        <ul>
+          <li>
+            <label for="sederunt-attendee-0-input">Name</label>
+            <input id="sederunt-attendee-0-input" type="text" placeholder="Name" required>
+          </li>
+        </ul>
+        <button id="add-sederunt" aria-label="Add another attendee">+</button>
+      </list-input>
+
+      <button class="proceed-button" type="submit">Call to order</button>
+    </form>
+
+    <script type="module" defer>
+      import { callToOrder } from './scripts/call_to_order.js';
+      const meetingDetailsForm = document.getElementById('meeting-details-form');
+      meetingDetailsForm.addEventListener('submit', callToOrder);
+    </script>
+  </body>
+</html>
