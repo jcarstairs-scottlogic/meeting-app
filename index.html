@@ -26,12 +26,12 @@
       </list-input>
 
       <button class="proceed-button" type="submit">Call to order</button>
-    </form>
 
-    <script type="module" defer>
-      import { callToOrder } from './scripts/call_to_order.js';
-      const meetingDetailsForm = document.getElementById('meeting-details-form');
-      meetingDetailsForm.addEventListener('submit', callToOrder);
-    </script>
+      <script type="module" defer>
+        import { callToOrder } from './scripts/call_to_order.js';
+        const meetingDetailsForm = document.getElementById('meeting-details-form');
+        meetingDetailsForm.addEventListener('submit', callToOrder);
+      </script>
+    </form>
   </body>
 </html>
