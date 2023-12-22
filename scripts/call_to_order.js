@@ -39,7 +39,7 @@ export function callToOrder(e) {
   */
 function getMeetingDetails(form) {
   const title = form.querySelector('#meeting-title').value;
-  const sederunt = JSON.parse(form.querySelector('#sederunt').value);
+  const sederunt = JSON.parse(form.querySelector('#sederunt').getAttribute('value'));
 
   const localStartDate = today();
   const localStartTime = now();

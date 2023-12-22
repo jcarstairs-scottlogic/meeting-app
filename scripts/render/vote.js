@@ -32,6 +32,8 @@ export default function renderVote(sponsor, text) {
   inFavourInput.type = 'number';
   inFavourInput.min = 0;
   inFavourInput.max = numAttendees;
+  const validInputs = [...new Array(numAttendees).keys()];
+  inFavourInput.setAttribute('pattern', '[' + validInputs.map(i => `(${i})`));
   inFavourInput.setAttribute('required', '');
   votingForm.appendChild(inFavourInput);
 
