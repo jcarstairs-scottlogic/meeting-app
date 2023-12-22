@@ -16,13 +16,20 @@ export function callToOrder(e) {
     ${meetingDetails.title} | Meeting in session
   `;
 
-  const feed = form.parentElement;
-  feed.appendChild(renderCallToOrder(meetingDetails));
-  form.remove();
   for (const h1 of document.getElementsByTagName('h1')) {
     h1.remove();
   }
-  feed.appendChild(renderAnyOtherBusiness());
+  const callToOrder = renderCallToOrder(meetingDetails);
+  const aob = renderAnyOtherBusiness();
+  form.replaceWith(callToOrder);
+  callToOrder.after(aob);
+
+  // It may seem odd to focus to CTO and scroll to the AOB. I reckon focusing
+  // the AOB would be super confusing to screen reader users since they won’t
+  // know what they’ve missed, but visual users can scroll up if they need to
+  // while the actionable bit (the AOB form) is in their face by default.
+  callToOrder.focus();
+  aob.scrollIntoView();
 }
 
 /**
