@@ -31,28 +31,34 @@
   gap: 0.5rem;
   grid-template-columns: 1fr 6rem;
   justify-items: stretch;
+  position: relative;
 }
 
-.put-motion-form__motion::before {
-  content: '“';
-  font-size: 6rem;
-  font-family: serif;
-  position: absolute;
+@media (min-width: 48rem) {
+  .put-motion-form__motion::before, .put-motion-form__motion::after {
+    font-size: 6rem;
+    font-family: serif;
+    position: absolute;
+    color: var(--border);
+    text-shadow:
+      2px 2px var(--bg),
+      2px -2px var(--bg),
+      -2px 2px var(--bg),
+      -2px -2px var(--bg);
+    --margin-width: min(45rem, 90%);
+  }
 
-  --content-width: min(45rem, 90%);
-  --margin-width: calc((100vw - var(--content-width)) / 2);
-  left: calc(var(--margin-width) - 4rem);
-}
+  .put-motion-form__motion::before {
+    content: '“';
+    right: calc(var(--margin-width) + 3.5rem);
+    top: -3rem;
+  }
 
-.put-motion-form__motion::after {
-  content: '”';
-  font-size: 6rem;
-  font-family: serif;
-  position: absolute;
-
-  --content-width: min(45rem, 90%);
-  --margin-width: calc((100vw - var(--content-width)) / 2);
-  right: calc(var(--margin-width) - 4rem);
+  .put-motion-form__motion::after {
+    content: '”';
+    left: calc(var(--margin-width) + 3.5rem);
+    bottom: -5.5rem;
+  }
 }
 
 .put-motion-form__sponsor {
@@ -66,6 +72,7 @@
 
 .put-motion-form__text {
   grid-column: 1 / 3;
+  resize: none;
 }
 
 .put-motion-form__buttons {
