@@ -53,6 +53,11 @@ export default function renderPutMotionForm() {
   buttons.setAttribute('class', 'put-motion-form__buttons');
   form.appendChild(buttons);
 
+  const putButton = document.createElement('button');
+  putButton.setAttribute('type', 'submit');
+  putButton.textContent = 'Put motion';
+  buttons.appendChild(putButton);
+
   const cancelButton = document.createElement('button');
   cancelButton.setAttribute('type', 'button');
   cancelButton.setAttribute('class', 'button--neutral');
@@ -65,11 +70,6 @@ export default function renderPutMotionForm() {
     aob.focus();
   });
   buttons.appendChild(cancelButton);
-
-  const putButton = document.createElement('button');
-  putButton.setAttribute('type', 'submit');
-  putButton.textContent = 'Put motion';
-  buttons.appendChild(putButton);
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
