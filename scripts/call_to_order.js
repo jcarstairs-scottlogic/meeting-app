@@ -41,9 +41,10 @@ function getMeetingDetails(form) {
   const title = form.querySelector('#meeting-title').value;
   const sederunt = JSON.parse(form.querySelector('#sederunt').getAttribute('value'));
 
-  const localStartDate = today();
-  const localStartTime = now();
+  const startUnix = Date.now();
+  const localStartDate = today(startUnix);
+  const localStartTime = now(startUnix);
 
-  return { title, sederunt, localStartDate, localStartTime };
+  return { title, sederunt, localStartDate, localStartTime, startUnix };
 }
 

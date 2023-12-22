@@ -48,5 +48,6 @@ function adjourn() {
   const adjournment = renderMeetingAdjournment();
   feed.appendChild(adjournment);
   adjournment.focus();
+  adjournment.scrollIntoView();
 }
 

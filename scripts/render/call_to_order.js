@@ -8,14 +8,20 @@
 export default function renderMeetingCalledToOrderMinuteEntry(meetingDetails) {
   const minuteEntry = document.createElement('section');
 
-  const headingCalledToOrder = document.createElement('h2');
-  headingCalledToOrder.textContent = meetingDetails.title;
-  minuteEntry.appendChild(headingCalledToOrder);
+  const headingMeetingTitle = document.createElement('h2');
+  headingMeetingTitle.setAttribute('id', 'meeting-title');
+  headingMeetingTitle.textContent = meetingDetails.title;
+  minuteEntry.appendChild(headingMeetingTitle);
 
   const pCalledToOrder = document.createElement('p');
-  pCalledToOrder.textContent = `
+  pCalledToOrder.innerHTML = `
     The meeting was called to order at
-    ${meetingDetails.localStartTime} on ${meetingDetails.localStartDate}.
+    <time
+      id="time-meeting-called-to-order"
+      datetime=${meetingDetails.unixStart}
+    >
+      ${meetingDetails.localStartTime} on ${meetingDetails.localStartDate}
+    </time>.
   `;
   minuteEntry.appendChild(pCalledToOrder);
 

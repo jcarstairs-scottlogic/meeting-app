@@ -4,5 +4,6 @@
  * @property {string[]} sederunt
  * @property {string} localStartDate
  * @property {string} localStartTime
+ * @property {number} unixStart
  */
 
