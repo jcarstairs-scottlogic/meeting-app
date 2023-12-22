@@ -81,6 +81,7 @@ export default function renderPutMotionForm() {
     feed.appendChild(discussMotion);
     form.remove();
     discussMotion.focus();
+    discussMotion.scrollIntoView();
   });
 
   return form;
