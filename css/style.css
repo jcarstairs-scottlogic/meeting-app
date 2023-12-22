@@ -298,11 +298,9 @@ label[type="button"]:hover {
 }
 
 button:focus-visible:where(:enabled, [role="button"]:not([aria-disabled="true"])),
-input:enabled:focus-visible:where(
-  [type="submit"],
-  [type="reset"],
-  [type="button"]
-) {
+input:enabled:focus-visible,
+textarea:enabled:focus-visible,
+select:enabled:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
