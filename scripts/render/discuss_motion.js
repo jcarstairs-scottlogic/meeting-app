@@ -1,3 +1,5 @@
+import renderVote from './vote.js';
+
 /**
   * Renders the 'discuss motion' component
   * @param {string} sponsor - the name of the sponsor of the motion
@@ -28,11 +30,10 @@ export default function renderDiscussMotion(sponsor, text) {
   const voteButton = document.createElement('button');
   voteButton.textContent = 'Vote';
   voteButton.addEventListener('click', () => {
-    const feed = motionWasPut.parentElement;
-    const vote = renderVote(sponsor, text);
-    feed.appendChild(vote);
-    motionWasPut.remove();
-    vote.focus();
+    const votingForm = renderVote(sponsor, text);
+    discussMotion.replaceWith(votingForm);
+    votingForm.getElementsByTagName('input')[0].focus();
+    votingForm.scrollIntoView();
   });
   discussMotion.appendChild(voteButton);
 

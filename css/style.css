@@ -77,6 +77,11 @@
   width: 8rem;
 }
 
+/* Voting form */
+
+.voting-form :is(input, button) {
+  display: block;
+}
 /* Based on simple.css: https://github.com/kevquirk/simple.css */
 
 /* Global variables. */
