@@ -74,7 +74,9 @@ class ListInput extends HTMLElement {
     addButton.addEventListener('click', () => {
       const counter = ul.children.length;
       const id = this.getAttribute('id');
-      ul.appendChild(this._renderListItem(counter, id));
+      const li = this._renderListItem(counter, id);
+      ul.appendChild(li);
+      li.getElementsByTagName('input')[0].focus();
     });
 
     updateCountersPromise.then(() => this._updateValue());
